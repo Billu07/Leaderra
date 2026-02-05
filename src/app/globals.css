@@ -1,0 +1,17 @@
+@import "tailwindcss";
+
+@theme {
+  /* Leaderra Brand Colors */
+  --color-brand-navy: #0b0b0b;
+  --color-brand-blue: #3b82f6;
+  --color-brand-green: #10b981;
+
+  /* Font Mapping */
+  --font-sans: var(--font-jakarta), ui-sans-serif, system-ui, sans-serif;
+}
+
+/* Ensure the body is white and the text is our brand navy */
+body {
+  background-color: white;
+  color: #0b0b0b; /* Fallback hex for reliability */
+}
