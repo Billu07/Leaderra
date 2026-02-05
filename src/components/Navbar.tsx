@@ -29,11 +29,11 @@ export default function Navbar() {
           <Image
             src="/logo.png"
             alt="Leaderra Logo"
-            width={200}
-            height={50}
+            width={180}
+            height={40}
             priority
             className={`${
-              isScrolled ? "h-8" : "h-10"
+              isScrolled ? "h-12" : "h-16"
             } w-auto transition-all duration-500 object-contain`}
           />
         </Link>

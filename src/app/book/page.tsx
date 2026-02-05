@@ -82,7 +82,7 @@ export default function BookPage() {
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid grid-cols-2 gap-5">
                 <div className="space-y-2">
-                  <label className="text-xs font-bold text-gray-400 uppercase tracking-wider ml-1">
+                  <label className="text-xs font-bold text-gray-600 uppercase tracking-wider ml-1">
                     First Name *
                   </label>
                   <input
@@ -94,7 +94,7 @@ export default function BookPage() {
                   />
                 </div>
                 <div className="space-y-2">
-                  <label className="text-xs font-bold text-gray-400 uppercase tracking-wider ml-1">
+                  <label className="text-xs font-bold text-gray-600 uppercase tracking-wider ml-1">
                     Last Name *
                   </label>
                   <input
@@ -108,7 +108,7 @@ export default function BookPage() {
               </div>
 
               <div className="space-y-2">
-                <label className="text-xs font-bold text-gray-400 uppercase tracking-wider ml-1">
+                <label className="text-xs font-bold text-gray-600 uppercase tracking-wider ml-1">
                   Business Email *
                 </label>
                 <input
@@ -121,7 +121,7 @@ export default function BookPage() {
               </div>
 
               <div className="space-y-2">
-                <label className="text-xs font-bold text-gray-400 uppercase tracking-wider ml-1">
+                <label className="text-xs font-bold text-gray-600 uppercase tracking-wider ml-1">
                   Company Name *
                 </label>
                 <input
@@ -135,7 +135,7 @@ export default function BookPage() {
 
               <div className="grid grid-cols-2 gap-5">
                 <div className="space-y-2">
-                  <label className="text-xs font-bold text-gray-400 uppercase tracking-wider ml-1">
+                  <label className="text-xs font-bold text-gray-600 uppercase tracking-wider ml-1">
                     Website
                   </label>
                   <input
@@ -146,7 +146,7 @@ export default function BookPage() {
                   />
                 </div>
                 <div className="space-y-2">
-                  <label className="text-xs font-bold text-gray-400 uppercase tracking-wider ml-1">
+                  <label className="text-xs font-bold text-gray-600 uppercase tracking-wider ml-1">
                     Phone *
                   </label>
                   <input
