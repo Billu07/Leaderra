@@ -51,7 +51,7 @@ export default function Home() {
             href="/book"
             className="mt-10 inline-block bg-brand-blue text-white px-12 py-5 rounded-full font-bold text-lg hover:bg-white hover:text-brand-navy transition-all shadow-xl"
           >
-            Close faster — Book an intro meeting
+            Close faster, Book an intro meeting
           </Link>
         </div>
       </section>
