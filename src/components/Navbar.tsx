@@ -29,8 +29,8 @@ export default function Navbar() {
           <Image
             src="/logo.png"
             alt="Leaderra Logo"
-            width={180}
-            height={40}
+            width={200}
+            height={50}
             priority
             className={`${
               isScrolled ? "h-8" : "h-10"
