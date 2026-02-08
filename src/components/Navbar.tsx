@@ -33,7 +33,7 @@ export default function Navbar() {
             height={40}
             priority
             className={`${
-              isScrolled ? "h-12" : "h-16"
+              isScrolled ? "h-10" : "h-14"
             } w-auto transition-all duration-500 object-contain`}
           />
         </Link>

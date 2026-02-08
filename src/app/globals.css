@@ -1,17 +1,33 @@
 @import "tailwindcss";
 
 @theme {
-  /* Leaderra Brand Colors */
-  --color-brand-navy: #0b0b0b;
-  --color-brand-blue: #3b82f6;
-  --color-brand-green: #10b981;
+  /* Leaderra Brand Colors - Adjusted to match the "Premium" Reference */
+  --color-brand-navy: #05132e; /* Deeper, richer navy */
+  --color-brand-blue: #185cff; /* Brighter "Electric" blue */
+  --color-brand-green: #00c389; /* Trustpilot Green */
 
   /* Font Mapping */
   --font-sans: var(--font-jakarta), ui-sans-serif, system-ui, sans-serif;
 }
 
-/* Ensure the body is white and the text is our brand navy */
-body {
-  background-color: white;
-  color: #0b0b0b; /* Fallback hex for reliability */
+@layer base {
+  body {
+    /* The LeadGenJay "Airy" Gradient Background */
+    @apply bg-gradient-to-b from-[#F0F7FF] via-white to-[#F0F7FF] text-brand-navy antialiased min-h-screen;
+  }
+}
+
+/* Custom Scrollbar for that premium feel */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 5px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
 }
