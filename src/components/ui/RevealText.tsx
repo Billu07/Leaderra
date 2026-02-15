@@ -2,7 +2,7 @@
 
 import { motion, useInView, useAnimation } from "framer-motion";
 import { useRef, useEffect } from "react";
-import { cn } from "@/lib/utils"; // Assuming utils exists, if not I'll create it inline or use clsx directly
+import { cn } from "@/lib/utils";
 
 interface RevealTextProps {
   text: string;
@@ -33,7 +33,7 @@ export default function RevealText({ text, className, delay = 0 }: RevealTextPro
           y: 0,
           transition: {
             duration: 0.8,
-            ease: [0.16, 1, 0.3, 1], // Custom ease for "premium" feel
+            ease: [0.16, 1, 0.3, 1] as any,
             delay: delay,
           },
         },

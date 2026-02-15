@@ -19,8 +19,8 @@ export default function Home() {
     <main className="overflow-x-hidden bg-white">
       {/* 1. HERO SECTION - Reverted to Clean Image BG with Animations */}
       <section className="relative min-h-[90vh] flex items-center bg-[url('/hero-bg.png')] bg-cover bg-right-top bg-no-repeat">
-        {/* Seamless Blend Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-r from-white via-white/40 to-transparent z-0 pointer-events-none" />
+        {/* Seamless Blend Overlay - Adjusted for visibility */}
+        <div className="absolute inset-0 bg-gradient-to-r from-white from-20% via-white/60 to-transparent z-0 pointer-events-none" />
 
         <div className="max-w-7xl mx-auto px-6 w-full relative z-10 grid lg:grid-cols-2">
           {/* Left: Text Content */}
@@ -32,15 +32,17 @@ export default function Home() {
               </div>
             </SlideIn>
 
-            <h1 className="text-5xl md:text-7xl font-bold text-slate-900 tracking-tight leading-[1.1] mb-6">
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-slate-900 tracking-tight leading-[1.1] mb-6">
               <RevealText text="Your Advisors Shouldn’t Discover" /> <br />
               <RevealText text="Misalignment Live." delay={0.2} />
             </h1>
 
             <SlideIn delay={0.4}>
-              <p className="text-xl text-slate-700 font-normal mb-10 max-w-lg leading-relaxed">
-                Stop wasting advisor time on exploratory calls. We qualify
-                intent so you focus on closing.
+              <p className="text-xl text-slate-600 font-normal mb-10 max-w-xl leading-relaxed">
+                <strong>
+                  Stop wasting advisor time on exploratory calls. We qualify
+                  intent so you focus on closing.
+                </strong>
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 items-start w-full sm:w-auto">

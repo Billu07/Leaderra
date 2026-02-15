@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { Search, TrendingUp, BarChart2, Clock, Ban, CheckCircle, ArrowRight } from "lucide-react";
 import SlideIn from "@/components/ui/SlideIn";
+import GridBackground from "@/components/ui/GridBackground";
 
 export default function Process() {
   const steps = [
@@ -35,6 +36,8 @@ export default function Process() {
 
   return (
     <section className="py-32 px-6 bg-slate-50 relative overflow-hidden">
+      <GridBackground />
+      
       <div className="max-w-6xl mx-auto text-center relative z-10">
         <SlideIn>
           <span className="text-brand-blue font-bold tracking-widest text-sm mb-4 block uppercase">
@@ -50,13 +53,13 @@ export default function Process() {
 
         <div className="grid md:grid-cols-3 lg:grid-cols-5 gap-8 mb-20 relative">
           {/* Connecting Line (Desktop) */}
-          <div className="hidden lg:block absolute top-10 left-[10%] right-[10%] h-0.5 border-t-2 border-dashed border-slate-200 -z-10" />
+          <div className="hidden lg:block absolute top-10 left-[10%] right-[10%] h-0.5 border-t-2 border-dashed border-slate-300 -z-10" />
 
           {steps.map((step, i) => (
             <SlideIn key={i} delay={i * 0.1}>
               <div className="flex flex-col items-center group">
                 <div className={`
-                  w-20 h-20 rounded-2xl flex items-center justify-center mb-6 shadow-lg shadow-slate-200/50 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3
+                  w-20 h-20 rounded-2xl flex items-center justify-center mb-6 shadow-xl shadow-slate-200/50 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3 border-4 border-white
                   ${step.color}
                 `}>
                   {step.icon}
@@ -70,13 +73,13 @@ export default function Process() {
         </div>
         
         <SlideIn delay={0.6} className="flex flex-col items-center gap-8">
-          <div className="inline-flex items-center gap-2 px-6 py-3 bg-white text-brand-blue font-bold rounded-full border border-blue-100 shadow-sm">
+          <div className="inline-flex items-center gap-2 px-6 py-3 bg-white/80 backdrop-blur-sm text-brand-blue font-bold rounded-full border border-blue-100 shadow-sm">
              <CheckCircle className="w-5 h-5" /> Clarity comes first.
           </div>
           
           <Link
             href="/book"
-            className="inline-flex items-center gap-2 bg-white text-brand-navy px-8 py-4 rounded-xl font-bold text-lg border-2 border-slate-200 hover:border-brand-navy hover:text-brand-navy transition-all shadow-sm hover:shadow-md"
+            className="inline-flex items-center gap-2 bg-white text-brand-navy px-8 py-4 rounded-xl font-bold text-lg border-2 border-slate-200 hover:border-brand-navy hover:text-brand-navy transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5"
           >
             Book an Advisor Time Audit <ArrowRight className="w-5 h-5" />
           </Link>
