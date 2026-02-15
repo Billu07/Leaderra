@@ -1,98 +1,116 @@
 "use client";
 
-import { Check, X } from "lucide-react";
+import { Check, X, TrendingUp, Clock, DollarSign, Target } from "lucide-react";
+import SlideIn from "@/components/ui/SlideIn";
 import RevealText from "@/components/ui/RevealText";
 
 export default function Comparison() {
+  const comparisonData = [
+    {
+      title: "Lead Generation",
+      action: "Drive traffic",
+      focus: "Focus on volume",
+      result: "Advisors filter live",
+      isHighlight: false,
+    },
+    {
+      title: "Appointment Setting",
+      action: "Fill calendars",
+      focus: "Focus on meetings",
+      result: "Advisors filter live",
+      isHighlight: false,
+    },
+    {
+      title: "Leaderra",
+      action: "Control conversation readiness",
+      focus: "Focus on progression probability",
+      result: "Advisors focus on closing",
+      isHighlight: true,
+    },
+  ];
+
+  const changes = [
+    { text: "Higher quality conversations", icon: <Target className="w-6 h-6 text-brand-blue" /> },
+    { text: "Stronger close progression", icon: <TrendingUp className="w-6 h-6 text-brand-green" /> },
+    { text: "Shorter advisory cycles", icon: <Clock className="w-6 h-6 text-orange-500" /> },
+    { text: "More revenue per advisor hour", icon: <DollarSign className="w-6 h-6 text-brand-navy" /> },
+  ];
+
   return (
-    <section className="py-24 px-6 relative z-10">
-      <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-5xl font-extrabold text-brand-navy mb-4">
-            Total Clarity on Our Role
-          </h2>
-          <p className="text-gray-500 text-lg">
-            We are an external, objective readiness layer.
-          </p>
-        </div>
+    <section className="py-32 px-6 bg-white relative">
+      <div className="max-w-7xl mx-auto">
+        {/* HOW WE COMPARE */}
+        <div className="text-center mb-20">
+          <SlideIn>
+            <RevealText
+              text="HOW WE COMPARE"
+              className="text-brand-blue font-bold tracking-widest text-sm mb-4 block uppercase"
+            />
+            <h2 className="text-4xl md:text-5xl font-extrabold text-brand-navy mb-16">
+              Stop filtering live.
+            </h2>
+          </SlideIn>
 
-        <div className="grid md:grid-cols-2 gap-8 lg:gap-12">
-          {/* What We Do - Premium White Card */}
-          <div className="bg-white p-10 rounded-[2.5rem] shadow-xl shadow-blue-900/5 border border-white/60 relative overflow-hidden group hover:-translate-y-1 transition-transform duration-500">
-            <div className="absolute top-0 left-0 w-full h-2 bg-brand-blue" />
-
-            <h3 className="text-2xl font-bold text-brand-navy mb-8 flex items-center gap-3">
-              <span className="w-10 h-10 rounded-full bg-blue-50 text-brand-blue flex items-center justify-center shadow-sm">
-                <Check className="w-6 h-6" />
-              </span>
-              What We Do
-            </h3>
-
-            <ul className="space-y-5">
-              {[
-                "Works only with existing inbound leads",
-                "Conducts human SDR conversations",
-                "Qualifies and prepares leads",
-                "Stops unready leads from booking",
-              ].map((item, i) => (
-                <li
-                  key={i}
-                  className="flex items-start gap-4 text-gray-700 font-medium"
+          <div className="grid md:grid-cols-3 gap-8 items-stretch">
+            {comparisonData.map((item, i) => (
+              <SlideIn key={i} delay={i * 0.1} className="h-full">
+                <div
+                  className={`relative p-8 rounded-2xl border transition-all duration-300 flex flex-col items-center text-center h-full ${
+                    item.isHighlight
+                      ? "bg-brand-navy text-white shadow-2xl scale-105 border-brand-navy z-10"
+                      : "bg-white text-slate-600 border-slate-200 shadow-sm hover:shadow-md"
+                  }`}
                 >
-                  <Check className="w-5 h-5 text-brand-green shrink-0 mt-0.5" />
-                  {item}
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* What We Don't Do - Subtle Gray Card */}
-          <div className="bg-[#F8FAFC] p-10 rounded-[2.5rem] border border-gray-200/60 relative overflow-hidden group hover:-translate-y-1 transition-transform duration-500">
-            <div className="absolute top-0 left-0 w-full h-2 bg-gray-300" />
-
-            <h3 className="text-2xl font-bold text-gray-500 mb-8 flex items-center gap-3">
-              <span className="w-10 h-10 rounded-full bg-gray-100 text-gray-400 flex items-center justify-center shadow-sm">
-                <X className="w-6 h-6" />
-              </span>
-              What We Don't Do
-            </h3>
-
-            <ul className="space-y-5">
-              {[
-                "Generate leads (Marketing's job)",
-                "Build marketing funnels",
-                "Close deals (AE's job)",
-              ].map((item, i) => (
-                <li
-                  key={i}
-                  className="flex items-start gap-4 text-gray-500 font-medium"
-                >
-                  <X className="w-5 h-5 text-red-300 shrink-0 mt-0.5" />
-                  {item}
-                </li>
-              ))}
-            </ul>
+                  {item.isHighlight && (
+                    <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-brand-blue text-white text-xs font-bold px-4 py-1.5 rounded-full uppercase tracking-wider shadow-lg">
+                      The Leaderra Way
+                    </div>
+                  )}
+                  
+                  <h3 className={`text-2xl font-bold mb-8 ${item.isHighlight ? "text-white" : "text-brand-navy"}`}>
+                    {item.title}
+                  </h3>
+                  
+                  <div className="space-y-6 w-full flex-grow flex flex-col justify-center">
+                    <div className={`p-4 rounded-xl font-medium ${item.isHighlight ? "bg-white/10" : "bg-slate-50"}`}>
+                      {item.action}
+                    </div>
+                    <div className={`p-4 rounded-xl font-medium ${item.isHighlight ? "bg-white/10" : "bg-slate-50"}`}>
+                      {item.focus}
+                    </div>
+                    <div className={`p-4 rounded-xl font-bold ${item.isHighlight ? "bg-brand-blue text-white" : "bg-red-50 text-red-500"}`}>
+                      {item.result}
+                    </div>
+                  </div>
+                </div>
+              </SlideIn>
+            ))}
           </div>
         </div>
 
-        {/* Focus Industries */}
-        <div className="mt-20 text-center">
-          <p className="text-xs font-bold text-brand-blue uppercase tracking-[0.2em] mb-8 opacity-80">
-            Focus Industries
-          </p>
-          <div className="flex flex-wrap justify-center gap-3 md:gap-6">
-            {[
-              "Technology / SaaS",
-              "Consulting & Advisory",
-              "Real Estate",
-              "Financial Services",
-            ].map((industry, i) => (
-              <span
-                key={i}
-                className="px-6 py-3 rounded-full bg-white border border-blue-50 text-brand-navy font-bold shadow-sm hover:shadow-md transition-shadow text-sm md:text-base"
-              >
-                {industry}
-              </span>
+        {/* WHAT CHANGES */}
+        <div className="mt-32">
+           <SlideIn className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-extrabold text-brand-navy mb-6">
+              What Changes?
+            </h2>
+            <p className="text-2xl text-slate-500 font-medium italic">
+              &quot;Less noise. More movement.&quot;
+            </p>
+          </SlideIn>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {changes.map((change, i) => (
+              <SlideIn key={i} delay={0.2 + (i * 0.1)}>
+                <div className="bg-white p-8 rounded-xl shadow-lg border border-slate-100 hover:-translate-y-1 transition-transform duration-300 flex flex-col items-center text-center h-full">
+                  <div className="w-14 h-14 rounded-full bg-slate-50 flex items-center justify-center mb-6">
+                    {change.icon}
+                  </div>
+                  <h4 className="text-lg font-bold text-brand-navy leading-tight">
+                    {change.text}
+                  </h4>
+                </div>
+              </SlideIn>
             ))}
           </div>
         </div>

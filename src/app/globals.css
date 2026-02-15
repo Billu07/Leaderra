@@ -1,33 +1,121 @@
 @import "tailwindcss";
 
 @theme {
-  /* Leaderra Brand Colors - Adjusted to match the "Premium" Reference */
-  --color-brand-navy: #05132e; /* Deeper, richer navy */
-  --color-brand-blue: #185cff; /* Brighter "Electric" blue */
-  --color-brand-green: #00c389; /* Trustpilot Green */
+  /* Leaderra Color System */
+  --color-brand-navy: #002244; /* Deep Navy - Premium Authority */
+  --color-brand-blue: #0066CC; /* Professional Blue - Trust & Action */
+  --color-brand-green: #10B981; /* Success Green */
+  --color-brand-red: #EF4444;   /* Alert Red */
+  
+  --color-slate-900: #0F172A;   /* Primary Text - Rich Black/Blue */
+  --color-slate-600: #475569;   /* Secondary Text */
+  --color-slate-300: #CBD5E1;   /* Disabled/Borders */
+  --color-slate-200: #E2E8F0;   /* Borders */
+  --color-slate-50: #F8FAFC;    /* Backgrounds */
+  
+  --color-white: #FFFFFF;
 
   /* Font Mapping */
-  --font-sans: var(--font-jakarta), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+
+  /* Border Radius */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+  --radius-full: 9999px;
 }
 
 @layer base {
   body {
-    /* The LeadGenJay "Airy" Gradient Background */
-    @apply bg-gradient-to-b from-[#F0F7FF] via-white to-[#F0F7FF] text-brand-navy antialiased min-h-screen;
+    @apply bg-white text-slate-900 font-sans antialiased min-h-screen;
+    line-height: 1.6;
+  }
+
+  /* Typography Hierarchy */
+  h1 {
+    @apply font-bold text-slate-900 tracking-tight;
+    font-size: 56px;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    text-wrap: balance;
+  }
+
+  h2 {
+    @apply font-bold text-slate-900;
+    font-size: 36px;
+    line-height: 1.25;
+    letter-spacing: -0.01em;
+    text-wrap: balance;
+  }
+
+  h3 {
+    @apply font-semibold text-slate-900;
+    font-size: 24px;
+    line-height: 1.4;
+  }
+
+  h4 {
+    @apply font-semibold text-slate-900;
+    font-size: 20px;
+    line-height: 1.5;
+  }
+
+  p {
+    @apply font-normal text-slate-600;
+    font-size: 16px;
+  }
+
+  /* Responsive Adjustments (Mobile) */
+  @media (max-width: 639px) {
+    h1 {
+      font-size: 40px;
+    }
+    h2 {
+      font-size: 28px;
+    }
+  }
+  
+  /* Responsive Adjustments (Tablet) */
+  @media (min-width: 640px) and (max-width: 1023px) {
+    h1 {
+      font-size: 48px;
+    }
+    h2 {
+      font-size: 32px;
+    }
   }
 }
 
-/* Custom Scrollbar for that premium feel */
-::-webkit-scrollbar {
-  width: 10px;
+/* Custom Utilities based on Design System */
+@utility text-body-large {
+  font-size: 18px;
+  line-height: 1.6;
 }
-::-webkit-scrollbar-track {
-  background: #f1f1f1;
+
+@utility text-body-small {
+  font-size: 14px;
+  line-height: 1.5;
 }
-::-webkit-scrollbar-thumb {
-  background: #cbd5e1;
-  border-radius: 5px;
+
+@utility text-label {
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.05em;
 }
-::-webkit-scrollbar-thumb:hover {
-  background: #94a3b8;
+
+@utility shadow-sm {
+  box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+}
+
+@utility shadow-md {
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+@utility shadow-lg {
+  box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+}
+
+@utility shadow-xl {
+  box-shadow: 0 20px 25px rgba(0,0,0,0.1);
 }

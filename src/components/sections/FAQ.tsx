@@ -2,53 +2,24 @@
 
 import { useState } from "react";
 import { ChevronDown, ChevronUp } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import SlideIn from "@/components/ui/SlideIn";
 
-// (Keep your existing 'const faqs = [...]' array here, the content is correct)
 const faqs = [
   {
-    question: "What exactly happens before a meeting is booked?",
+    question: "How is this different from lead generation or SDR?",
     answer:
-      "Before any meeting is scheduled, we speak directly with the lead. We assess intent, understanding, urgency, and decision context. A meeting is booked only if there is a clear reason for sales to get involved.",
+      "We don't generate traffic or book meetings. We control readiness before meetings happen.",
   },
   {
-    question: "Do you book meetings?",
+    question: "Will this reduce the number of meetings?",
     answer:
-      "Yes. But meetings are not the goal — they are the outcome of readiness.",
+      "Yes — intentionally. The goal is fewer unproductive calls and stronger progression.",
   },
   {
-    question: "How is this different from traditional appointment setting?",
+    question: "Do you replace our advisors?",
     answer:
-      "Traditional appointment setting optimizes for volume. Leaderra optimizes whether a sales conversation should happen at all.",
-  },
-  {
-    question: "Do you optimize or change our marketing funnel?",
-    answer:
-      "No. Our role starts after a lead is generated. We validate whether your funnel produces ready leads by testing them in real conversations.",
-  },
-  {
-    question: "We already have SDRs. Why would we need Leaderra?",
-    answer:
-      "Internal SDRs are often measured by activity and output. Leaderra operates as an external, objective readiness layer with no incentive to push meetings forward unless they are truly ready.",
-  },
-  {
-    question: "What happens to leads that aren't ready?",
-    answer:
-      "They are paused and not passed to sales. This prevents wasted conversations and protects sales time.",
-  },
-  {
-    question: "Will this reduce the number of meetings on our calendar?",
-    answer:
-      "In most cases, yes — intentionally. The goal is fewer meetings that actually move forward.",
-  },
-  {
-    question: "Do you guarantee results?",
-    answer:
-      "No. We don't guarantee revenue, deal size, or close rates. We commit to disciplined qualification and protecting sales time.",
-  },
-  {
-    question: "Who is this service NOT a good fit for?",
-    answer:
-      "Companies without inbound leads, low-ticket high-volume sales models, or teams looking to maximize meeting volume at any cost.",
+      "No. We protect their time.",
   },
 ];
 
@@ -56,52 +27,65 @@ export default function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
-    <section className="py-24 px-6">
-      <div className="max-w-4xl mx-auto">
-        <p className="text-center text-xs font-bold text-gray-500 uppercase tracking-widest mb-4">
-          Still got questions? We have answers.
-        </p>
-        <h2 className="text-5xl font-extrabold text-brand-navy mb-16 text-center tracking-tight">
-          Frequently Asked Questions
-        </h2>
+    <section className="py-32 px-6 bg-white relative">
+      <div className="max-w-3xl mx-auto">
+        <SlideIn className="text-center mb-16">
+          <span className="text-brand-blue font-bold tracking-widest text-sm mb-4 block uppercase">
+            Common Questions
+          </span>
+          <h2 className="text-4xl md:text-5xl font-extrabold text-brand-navy">
+            FAQ
+          </h2>
+        </SlideIn>
 
-        <div className="space-y-4">
+        <div className="space-y-6">
           {faqs.map((faq, index) => (
-            <div
-              key={index}
-              /* The "Separated Bar" Style */
-              className={`bg-white rounded-xl border transition-all duration-300 ${
-                openIndex === index
-                  ? "border-brand-blue shadow-lg ring-1 ring-brand-blue/20"
-                  : "border-gray-200 shadow-sm hover:border-gray-300"
-              }`}
-            >
-              <button
-                onClick={() => setOpenIndex(openIndex === index ? null : index)}
-                className="w-full flex items-center justify-between p-6 text-left"
-              >
-                <span className="font-bold text-brand-navy text-lg">
-                  {faq.question}
-                </span>
-                {openIndex === index ? (
-                  <ChevronUp className="w-5 h-5 text-brand-blue shrink-0" />
-                ) : (
-                  <ChevronDown className="w-5 h-5 text-gray-400 shrink-0" />
-                )}
-              </button>
-
+            <SlideIn key={index} delay={index * 0.1}>
               <div
-                className={`overflow-hidden transition-all duration-300 ease-in-out ${
+                className={`rounded-2xl transition-all duration-300 ${
                   openIndex === index
-                    ? "max-h-48 opacity-100"
-                    : "max-h-0 opacity-0"
+                    ? "bg-slate-50 ring-1 ring-brand-blue/10 shadow-sm"
+                    : "bg-white hover:bg-slate-50/50"
                 }`}
               >
-                <p className="px-6 pb-6 text-gray-600 leading-relaxed border-t border-gray-100 pt-4">
-                  {faq.answer}
-                </p>
+                <button
+                  onClick={() => setOpenIndex(openIndex === index ? null : index)}
+                  className="w-full flex items-center justify-between p-6 md:p-8 text-left"
+                >
+                  <span className={`font-bold text-lg md:text-xl pr-8 leading-tight transition-colors ${
+                    openIndex === index ? "text-brand-blue" : "text-brand-navy"
+                  }`}>
+                    {faq.question}
+                  </span>
+                  <div className={`
+                    w-8 h-8 rounded-full flex items-center justify-center shrink-0 transition-colors
+                    ${openIndex === index ? "bg-brand-blue text-white" : "bg-slate-100 text-slate-400"}
+                  `}>
+                    {openIndex === index ? (
+                      <ChevronUp className="w-5 h-5" />
+                    ) : (
+                      <ChevronDown className="w-5 h-5" />
+                    )}
+                  </div>
+                </button>
+
+                <AnimatePresence>
+                  {openIndex === index && (
+                    <motion.div
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: "auto", opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.3, ease: "easeInOut" }}
+                      className="overflow-hidden"
+                    >
+                      <p className="px-6 md:px-8 pb-8 text-slate-600 leading-relaxed text-lg font-medium border-t border-slate-100/50 pt-4 mt-2">
+                        {faq.answer}
+                      </p>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
               </div>
-            </div>
+            </SlideIn>
           ))}
         </div>
       </div>

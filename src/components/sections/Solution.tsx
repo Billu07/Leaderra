@@ -1,103 +1,88 @@
 "use client";
 
-import { Filter, BrainCircuit, ShieldCheck, Check } from "lucide-react";
-import RevealText from "@/components/ui/RevealText";
+import { ClipboardCheck, FileCheck, Target, ArrowDown } from "lucide-react";
+import SlideIn from "@/components/ui/SlideIn";
 
 export default function Solution() {
-  const cards = [
+  const features = [
     {
-      icon: <Filter className="w-10 h-10 text-white" />,
-      title: "1. Validate Intent",
-      desc: "We speak directly with the lead to confirm real buying intent before they get to you. No more 'just looking'.",
-      color: "bg-brand-blue",
-      textColor: "text-white",
+      step: "01",
+      title: "Align Expectations",
+      description: "We set clear goals and align with your financial objectives.",
+      icon: <Target className="w-8 h-8 text-brand-blue" strokeWidth={1.5} />,
     },
     {
-      icon: <BrainCircuit className="w-10 h-10 text-brand-navy" />,
-      title: "2. Clarify Expectations",
-      desc: "We ensure they understand your offer, pricing model, and have the right context for a decision.",
-      color: "bg-[#F3F4F6]", // Light Gray
-      textColor: "text-brand-navy",
+      step: "02",
+      title: "Confirm Documentation Readiness",
+      description: "We ensure all your financial documents are in order.",
+      icon: <ClipboardCheck className="w-8 h-8 text-brand-blue" strokeWidth={1.5} />,
     },
     {
-      icon: <ShieldCheck className="w-10 h-10 text-white" />,
-      title: "3. Assess Timing",
-      desc: "We decide whether a sales conversation should happen now, or if they need nurturing.",
-      color: "bg-brand-navy",
-      textColor: "text-white",
+      step: "03",
+      title: "Validate Decision Intent",
+      description: "We confirm your commitment and investment goals.",
+      icon: <FileCheck className="w-8 h-8 text-brand-blue" strokeWidth={1.5} />,
     },
   ];
 
   return (
-    <section className="py-24 bg-white" id="solution">
-      <div className="max-w-7xl mx-auto px-6">
-        {/* Section Header */}
-        <div className="mb-24 text-center max-w-3xl mx-auto">
-          <RevealText
-            text="THE SOLUTION"
-            className="text-brand-blue font-bold tracking-widest text-sm mb-4"
-          />
-          <h3 className="text-5xl md:text-7xl font-bold text-brand-navy leading-[0.95]">
-            The Readiness Layer.
-          </h3>
-          <p className="mt-6 text-xl text-gray-500">
-            Leaderra sits between inbound interest and your sales calendar.
-          </p>
+    <section className="py-32 px-6 bg-slate-50 relative overflow-hidden" id="how-it-works">
+      {/* Background Gradient Blob */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-[800px] bg-gradient-to-b from-white to-transparent pointer-events-none" />
+
+      <div className="max-w-7xl mx-auto relative z-10">
+        <div className="text-center mb-24">
+          <SlideIn>
+            <h2 className="text-4xl md:text-5xl font-extrabold text-brand-navy mb-6 tracking-tight">
+              What Leaderra Does
+            </h2>
+            <p className="text-xl text-slate-600 font-medium max-w-2xl mx-auto">
+              We operate <span className="text-brand-blue font-bold">before</span> the advisory call.
+            </p>
+          </SlideIn>
         </div>
 
-        {/* STICKY DECK OF CARDS */}
-        <div className="flex flex-col gap-8 pb-24">
-          {cards.map((card, index) => (
-            <div
-              key={index}
-              className={`sticky top-[15vh] p-10 md:p-16 rounded-[3rem] border border-black/5 shadow-2xl shadow-black/5 ${card.color} ${card.textColor} transition-transform duration-500`}
-              // This logic creates the stacking effect:
-              style={{
-                top: `${120 + index * 40}px`, // Each card sticks slightly lower than the previous one
-                zIndex: index + 1,
-              }}
-            >
-              <div className="flex flex-col md:flex-row gap-10 items-start md:items-center">
-                <div
-                  className={`w-20 h-20 rounded-2xl flex items-center justify-center shrink-0 ${card.textColor === "text-white" ? "bg-white/20" : "bg-brand-navy/10"}`}
-                >
-                  {card.icon}
-                </div>
-                <div>
-                  <h4 className="text-3xl md:text-4xl font-bold mb-4">
-                    {card.title}
-                  </h4>
-                  <p className={`text-xl leading-relaxed opacity-90 max-w-2xl`}>
-                    {card.desc}
+        <div className="grid lg:grid-cols-3 gap-8">
+          {features.map((feature, index) => (
+            <SlideIn key={index} delay={index * 0.1} className="h-full">
+              <div className="group h-full bg-white rounded-3xl p-10 shadow-xl shadow-slate-200/40 border border-slate-100 hover:border-blue-100 transition-all duration-500 hover:-translate-y-2 relative overflow-hidden">
+                {/* Hover Gradient */}
+                <div className="absolute inset-0 bg-gradient-to-br from-blue-50/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                
+                <div className="relative z-10">
+                  <div className="flex justify-between items-start mb-10">
+                    <div className="w-16 h-16 rounded-2xl bg-slate-50 flex items-center justify-center group-hover:bg-brand-blue/10 transition-colors duration-500">
+                      {feature.icon}
+                    </div>
+                    <span className="text-4xl font-extrabold text-slate-100 group-hover:text-blue-50 transition-colors duration-500 select-none">
+                      {feature.step}
+                    </span>
+                  </div>
+                  
+                  <h3 className="text-2xl font-bold text-brand-navy mb-4">
+                    {feature.title}
+                  </h3>
+                  
+                  <p className="text-slate-600 leading-relaxed font-medium">
+                    {feature.description}
                   </p>
                 </div>
               </div>
-            </div>
+            </SlideIn>
           ))}
         </div>
 
-        {/* BEYOND FILTERING BLOCK (Static below the stack) */}
-        <div className="relative z-10 bg-white rounded-[3rem] border border-brand-blue p-10 md:p-20 text-center overflow-hidden">
-          <div className="absolute inset-0 bg-brand-blue/5"></div>
-          <h3 className="text-3xl md:text-5xl font-bold text-brand-navy mb-10 relative z-10">
-            Beyond Filtering: We mentally <br /> prepare them for a decision.
-          </h3>
-          <div className="flex flex-wrap justify-center gap-4 md:gap-8 relative z-10">
-            {[
-              "Fewer 'just exploring' calls",
-              "Shorter sales cycles",
-              "Better conversion progression",
-            ].map((res, i) => (
-              <div
-                key={i}
-                className="flex items-center gap-3 bg-white text-brand-navy px-8 py-4 rounded-full font-bold shadow-md border border-gray-100"
-              >
-                <Check className="w-5 h-5 text-brand-blue" />
-                {res}
-              </div>
-            ))}
+        {/* Outcome Statement */}
+        <SlideIn delay={0.4} className="mt-24 text-center">
+          <div className="inline-flex flex-col items-center gap-6">
+            <div className="w-px h-16 bg-gradient-to-b from-slate-200 to-transparent" />
+            <p className="text-2xl md:text-3xl font-bold text-brand-navy max-w-3xl leading-tight">
+              Only prospects who demonstrate readiness reach the advisor calendar.
+              <br />
+              <span className="text-brand-blue block mt-4">Advisors focus on closing — not discovery.</span>
+            </p>
           </div>
-        </div>
+        </SlideIn>
       </div>
     </section>
   );

@@ -1,0 +1,29 @@
+**Subject:** Abstract 3D Visualization of Lead Qualification Process
+**Style:** Cinematic, Tech-Minimalist, High-Fidelity 3D (Blender/Cinema 4D aesthetic), Clean, Professional.
+**Duration:** 15 seconds.
+**Color Palette:** Deep Navy Blue (#05132e), Electric Blue (#185cff), Clean White, Metallic Silver.
+
+**Detailed Breakdown:**
+
+**[00:00 - 00:05] The Chaos (Inbound Flow)**
+*   **Action:** Thousands of small, grey, unorganized spherical particles flow rapidly from left to right across a clean, abstract white/light grey infinite space.
+*   **Detail:** The movement is turbulent and noisy. They are hitting an invisible wall on the right side, bouncing off chaotically.
+*   **Metaphor:** This represents unstructured inbound leads overwhelming a sales team.
+*   **Camera:** Slightly high angle, tracking the flow sideways.
+
+**[00:05 - 00:10] The Intervention (Leaderra Layer)**
+*   **Action:** A sleek, glowing, translucent rectangular "prism" or "lens" (The Readiness Layer) materializes in the middle of the flow. It has a subtle electric blue aura.
+*   **Detail:** As the chaotic grey particles hit this prism, they slow down. Inside the prism, we see a complex but orderly internal mechanism—like rings spinning or light scanning the particles.
+*   **Metaphor:** The process of qualification and alignment.
+
+**[00:10 - 00:15] The Alignment (Qualified Output)**
+*   **Action:** Emerging from the *other side* of the prism, the particles are no longer grey and chaotic. They are now transformed into larger, glowing GOLD or BRIGHT GREEN spheres.
+*   **Detail:** They move in a perfectly straight, synchronized line towards the right, where they slot satisfyingly into designated "docks" or "slots".
+*   **Metaphor:** High-quality, ready-to-close deals landing on the advisor's calendar.
+*   **Ending:** The camera pulls back to show the full "Chaos -> Filter -> Order" system working smoothly.
+
+**Technical Prompts:**
+*   "Ray-traced lighting, soft shadows, depth of field."
+*   "Glass and metal textures."
+*   "Smooth motion graphics animation style."
+*   "No text, no human figures, purely abstract geometric storytelling."

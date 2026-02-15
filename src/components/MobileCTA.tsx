@@ -9,7 +9,7 @@ export default function MobileCTA() {
         href="/book"
         className="block w-full bg-brand-navy text-white text-center py-4 rounded-xl font-bold text-lg active:scale-[0.98] transition-transform"
       >
-        Book a meeting
+        Book an Advisor Time Audit
       </Link>
     </div>
   );
